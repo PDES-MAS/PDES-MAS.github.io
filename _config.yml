@@ -1,5 +1,13 @@
 title: PDES-MAS
-description: PDES-MAS is a framework and a system (simulation kernel) for the distributed simulation for agent-based systems.
+description: Distributed Simulation of Agent-Based Systems
 show_downloads: true
 google_analytics:
 theme: jekyll-theme-architect
+github:
+  is_project_page: true
+  repository_name: PDES-MAS
+  repository_url: https://github.com/PDES-MAS/PDES-MAS
+  zip_url: https://github.com/PDES-MAS/PDES-MAS/zipball/master
+  tar_url: https://github.com/PDES-MAS/PDES-MAS/tarball/master
+  owner_url: https://github.com/orgs/asia-lab-sustech
+  owner_name: ASIA Lab
