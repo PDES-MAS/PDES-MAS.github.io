@@ -1,123 +1,18 @@
 ---
 layout: default
 ---
-
-Text can be **bold**, _italic_, or ~~strikethrough~~.
-
-[Link to another page](./another-page.html).
-
-There should be whitespace between paragraphs.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
-
-# Header 1
-
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
-
-## Header 2
-
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
-
-### Header 3
-
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
-
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
-
-#### Header 4
-
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-
-##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
+# PDES-MAS
+## Distributed Simulation of Agent-Based Systems
 
 
-### Definition lists can be used with HTML syntax.
+# Overview
 
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
+There has been considerable recent interest in agent-based systems , systems based on autonomous software and/or hardware components (agents) which cooperate within an environment to perform some task.  Agent-based systems offer advantages when independently developed components must inter-operate in a heterogeneous environment, e.g. the Internet, and agent-based systems are increasingly being applied in a wide range of areas including telecommunications, business process modelling, computer games, control of mobile robots and military simulations.  While agents offer great promise, adoption of this new technology has been hampered by the limitations of current development tools and methodologies.  Design and implementation remains largely experimental, and experimental approaches are likely to remain important for the foreseeable future.  In this context, simulation has a key role to play in the development of agent-based systems, allowing the agent designer to learn more about the behaviour of the system or to investigate the implications of alternative architectures.
 
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
+However, the computational requirements of simulations of agent-based systems far exceed the capabilities of conventional sequential von Neumann computer systems.  Each agent is typically a complex system in its own right (e.g.  with sensing, planning, inference etc. capabilities), requiring considerable computational resources, and many agents may be required to investigate the behaviour of the system as a whole or even the behaviour of a single agent.  One solution to this problem is to attempt to exploit the high degree of parallelism inherent in agent-based systems to parallelise the simulation. Decentralised, event driven distributed simulation is particularly suitable or modelling systems with inherent asynchronous parallelism, such as agent-based systems.   However, most work in this area has tended to employ various ad-hoc approaches to parallel simulation, e.g.  distributing the agents over a network of processors interacting via some communication protocol. As a result, the simulations often have relatively poor performance, limiting the nature and scope of the experiments that can be performed.
 
-```
-The final element.
-```
+A key problem in  distributed simulation of agents is the treatment of the agents' environment (the shared state). What is required is a way of efficiently decomposing the shared state to allow both the agents and their environment to be distributed across multiple processors, eliminating the bottlenecks which result from a single centralised environment. Furthermore, this decomposition must be continuously updated as the pattern of  interaction between the agents and their environment changes to ensure that the load remains balanced and performance is not degraded.
+
+PDES-MAS is a framework and a system (simulation kernel)  for the distributed simulation for agent-based systems. PDES-MAS adopts a standard discrete event simulation approach with optimistic synchronization. Each agent is modelled as an Agent Logical Process (ALP) while the shared state is maintained by  a dynamically and transparently reconfigured tree-structured set of additional logical processes, the Communication Logical Processes (CLP), which cluster agent models and shared state.
+
+# Publications
