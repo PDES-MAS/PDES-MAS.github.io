@@ -33,7 +33,12 @@ make -j5
 
 # Running Example Code
 
-There are already an example multi-agent system model, [Tileworld](http://www.tworld-ai.com/resrc/introducing_the_tileworld.pdf).
+There are already some standard examples of multi-agent system model, [Tileworld](http://www.tworld-ai.com/resrc/introducing_the_tileworld.pdf) is one of them.  
+And we've provided an example of this kind of agent. You can find it in your build directory after successfully built PDES-MAS. 
+To run and test it, just use `mpirun`:
+```shell
+mpirun -np 15 tileworld
+```
 
-# API Reference
+# Agent API Reference
 See [here](/api/)

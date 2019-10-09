@@ -17,7 +17,7 @@ First, let's see a basic example about how to construct a simulation:
 int main(int argc, char **argv) {
   spdlog::set_level(spdlog::level::debug);
   Simulation sim = Simulation();
-  sim.Construct(7, 8, 0, 10000);
+  sim.Construct(7, 8, 0, 10000); // 7 CLPs, 8 ALPs, start from timestamp 0, end at 10000
 
   spdlog::info("MPI process up, rank {0}, size {1}", sim.rank(), sim.size());
   sim
@@ -62,5 +62,19 @@ int main(int argc, char **argv) {
 }
 ```
 
+First, we initialize the simulation object `sim`, which will be in control of the simulation settings, variable loading and 
+controlling of the simulation execution process. After calling `Construct()`, MPI processes will be initialized 
+and all the following code will run in different MPI processes.
 
-For detailed documents, please refer to []().
+```c++
+void TestAgent::Cycle() {
+  if (this->GetEndTime() - this->GetLVT() <= 1000) {
+    this->time_wrap(this->GetEndTime() - this->GetLVT());
+  } else {
+    this->time_wrap((random() % 500) + 500);
+  }
+  this->SendGVTMessage();
+}
+```
+
+For detailed documents, please refer to [Readthedocs]().
