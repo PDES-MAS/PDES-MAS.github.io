@@ -40,5 +40,3 @@ To run and test it, just use `mpirun`:
 mpirun -np 15 tileworld
 ```
 
-# Agent API Reference
-See [here](/api/)

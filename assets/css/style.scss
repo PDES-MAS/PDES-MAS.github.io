@@ -2,3 +2,19 @@
 ---
 
 @import 'jekyll-theme-architect';
+
+.site-nav{
+  font-size: 2em;
+  color: white;
+  margin-top: 30px;
+}
+
+.site-nav a{
+  color: lightblue;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.site-nav a:hover{
+  color: white;
+}

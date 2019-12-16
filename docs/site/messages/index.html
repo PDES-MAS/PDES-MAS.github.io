@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Message Types - PDES-MAS Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Message Types";
+    var mkdocs_page_input_path = "messages.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> PDES-MAS Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Welcome</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../api/">Agent Programming Interface</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lp/">Logical Process</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Message Types</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#message-types">Message Types</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#class-abstractmessage">class AbstractMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-antimessage">class AntiMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-controlmessage">class ControlMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-endmessage">class EndMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-gvtcontrolmessage">class GvtControlMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-gvtmessage">class GvtMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-gvtrequestmessage">class GvtRequestMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-gvtvaluemessage">class GvtValueMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-loadbalancingmessage">class LoadBalancingMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-rangequeryantimessage">class RangeQueryAntiMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-rangequerymessage">class RangeQueryMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-rangeupdatemessage">class RangeUpdateMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-responsemessage">class ResponseMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-rollbackmessage">class RollbackMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-sharedstatemessage">class SharedStateMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-simulationmessage">class SimulationMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-singlereadantimessage">class SingleReadAntiMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-singlereadmessage">class SingleReadMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-singlereadresponsemessage">class SingleReadResponseMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-statemigrationmessage">class StateMigrationMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-writeantimessage">class WriteAntiMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-writemessage">class WriteMessage</a></li>
+        
+            <li><a class="toctree-l3" href="#class-writeresponsemessage">class WriteResponseMessage</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ssv/">State Variable</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">PDES-MAS Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Message Types</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="message-types">Message Types</h1>
+<p>In PDES-MAS, communication between LPs are designed to use <code>Message</code>. The messages have two categories: <code>ControlMessage</code> and <code>SimulationMessage</code>. 
+<code>ControlMessage</code> is used to control the simulation process, thus has higher priority and is sent from LP to LP in a separate message queue.
+<code>SimulationMessage</code> is where the data exchange between agents and environments lives in. It could either be a request message, a response message 
+or a anti message which is for reverting changes after a roll-back. </p>
+<h2 id="class-abstractmessage">class <code>AbstractMessage</code></h2>
+<p>This is the Abstract Base Class (ABC) from which all other message classes inherit. It defines some standard members which all messages contain. It also specifies two purely virtual methods send and receive which are defined in the three child classes. Each message sub class must also implement the <code>CompareTo</code> method.</p>
+<h2 id="class-antimessage">class <code>AntiMessage</code></h2>
+<p>Base class for all anti message classes.</p>
+<h2 id="class-controlmessage">class <code>ControlMessage</code></h2>
+<p>Base class for all control message classes.</p>
+<p>A control message is NOT blocked by windows and its timestamp is NOT considered in GVT calculation.</p>
+<h2 id="class-endmessage">class <code>EndMessage</code></h2>
+<p>End message for an ALP.</p>
+<p>This is the EndMessage class used to indicate an agent
+has finished sending it's messages. This message has special routing,
+whereby it is routed through all ports except the one it came from.
+This is used by the shutdown procedure.</p>
+<p>The shutdown procedure uses GVT for the termination condition, the
+simulation is given a set end_time and when GVT=end_time the
+simulation can be safely terminated. Here, as in the previous approach
+each LP sends a termination message with a time-stamp = end_time of
+the simulation(NOTE end_time is usually set to time of last event plus
+one). This message must be broadcast to all CLPs (Not ALPs) in the
+system so as to update their LVT. After sending the termination
+message the ALP instigates a GVT calculation to determine the new GVT
+value. When the first agent does this GVT != end_time, although the
+LVT of the terminating agent = end_time and the LVT of all the CLPs =
+end_time, the LVT of all the other ALPs != end_time as none have sent
+their termination message.</p>
+<p>Using GVT in this way resolves the problem of transient messages as
+the GVT algorithm accounts for this.</p>
+<p>When all ALPs have sent their termination message the root CLP must
+periodically instigate gvt calculation. Once all transient messages
+have arrived and GVT is calculated as end_time it is safe to
+terminate.</p>
+<h2 id="class-gvtcontrolmessage">class <code>GvtControlMessage</code></h2>
+<p>Messages sent to each LP to decide their Mattern color, in order to do the GTV algorithm.</p>
+<h2 id="class-gvtmessage">class <code>GvtMessage</code></h2>
+<p>Base class for all GVT-related messages.</p>
+<h2 id="class-gvtrequestmessage">class <code>GvtRequestMessage</code></h2>
+<p>Message sent by ALPs to initiate a GVT calculation.</p>
+<h2 id="class-gvtvaluemessage">class <code>GvtValueMessage</code></h2>
+<p>Message reporting final negotiated GVT value back to each LP.</p>
+<h2 id="class-loadbalancingmessage">class <code>LoadBalancingMessage</code></h2>
+<p>Originally designed to control load balancing between CLPs. Now replaced by <code>StateMigrationMessage</code>. </p>
+<h2 id="class-rangequeryantimessage">class <code>RangeQueryAntiMessage</code></h2>
+<p>Anti message for range queries.</p>
+<h2 id="class-rangequerymessage">class <code>RangeQueryMessage</code></h2>
+<p>Message to perform range queries, or contains the response of a range query.</p>
+<h2 id="class-rangeupdatemessage">class <code>RangeUpdateMessage</code></h2>
+<p>Message to notify CLPs about range updates, typically after a variable has been changed, or when rollback and/or state migration happens.</p>
+<h2 id="class-responsemessage">class <code>ResponseMessage</code></h2>
+<p>Base class of all response message classes
+A mixin class to distinguish all types of response message which is inherited from Simulation message</p>
+<h2 id="class-rollbackmessage">class <code>RollbackMessage</code></h2>
+<p>Class which implements messages for rollback</p>
+<p>This is the class that implements the rollback message. It has a rollback Tag to identify the origin of a rollback (used to prevent the same LP from rolling back twice as a result of the same straggler). Rollback messages are generated by Clps, whereas anti-messages are generated by Alps.</p>
+<h2 id="class-sharedstatemessage">class <code>SharedStateMessage</code></h2>
+<p>Description: This is an abstract base class which all messages operating on the shared state inherit from. These messages are:
+- ReadMessage
+- WriteMessage
+- AddMessage
+- DelMessage</p>
+<p>This class adds the virtual method <code>GenerateAntiMessage</code>, which generates an equivalent AntiMessage from the normal non-anti-message</p>
+<h2 id="class-simulationmessage">class <code>SimulationMessage</code></h2>
+<p>Base class for all simulation message classes. Simulation message are blocked by windows and its timestamp is considered in GVT calculation.</p>
+<h2 id="class-singlereadantimessage">class <code>SingleReadAntiMessage</code></h2>
+<p>Anti message for single variable reads.</p>
+<h2 id="class-singlereadmessage">class <code>SingleReadMessage</code></h2>
+<p>Class for reading a single SSV</p>
+<p>An instance of SingleReadMessage defines a message for an ALP reading the value of an individual Shared State Variable.</p>
+<h2 id="class-singlereadresponsemessage">class <code>SingleReadResponseMessage</code></h2>
+<p>Response of reading a single SSV.</p>
+<h2 id="class-statemigrationmessage">class <code>StateMigrationMessage</code></h2>
+<p>Message controls the migration of state variables between CLPs. Contain the variables to be migrated (maybe a empty list).</p>
+<h2 id="class-writeantimessage">class <code>WriteAntiMessage</code></h2>
+<p>Anti message for updating a single SSV.</p>
+<h2 id="class-writemessage">class <code>WriteMessage</code></h2>
+<p>Class for updating a single SSV.</p>
+<p>An instance of SingleReadMessage defines a message for an ALP updating the value of an individual Shared State Variable. A successful update will create a new write period at the destination CLP</p>
+<h2 id="class-writeresponsemessage">class <code>WriteResponseMessage</code></h2>
+<p>Response message for variable writes.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ssv/" class="btn btn-neutral float-right" title="State Variable">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../lp/" class="btn btn-neutral" title="Logical Process"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../lp/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../ssv/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Agent Programming Interface - PDES-MAS Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Agent Programming Interface";
+    var mkdocs_page_input_path = "api.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> PDES-MAS Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Welcome</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Agent Programming Interface</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#agent-programming-interface">Agent Programming Interface</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#class-simulation">class Simulation</a></li>
+        
+            <li><a class="toctree-l3" href="#class-agent">class Agent</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../lp/">Logical Process</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../messages/">Message Types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ssv/">State Variable</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">PDES-MAS Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Agent Programming Interface</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="agent-programming-interface">Agent Programming Interface</h1>
+<h2 id="class-simulation">class <code>Simulation</code></h2>
+<h3 id="method-construct">method <code>Construct</code></h3>
+<p>Construct the simulation, with specifying number of CLPs, number of ALPs, and simulation start and end time.</p>
+<p>This is the step where MPI processes are created and forked from main process. After that, all codes executing 
+will be at different MPI processes.</p>
+<h3 id="method-attach_alp_to_clp">method <code>attach_alp_to_clp</code></h3>
+<p>Attaches an ALP to a leaf CLP. This is typically controlled by users. If an ALP is not attached to a CLP, it will not be 
+able to communicate to other process, and the simulation will exit with errors after it starts.</p>
+<h3 id="method-preload_variable">method <code>preload_variable</code></h3>
+<p>Pre-loads variables into the shared states. Since PDES-MAS do not support dynamically adding or removing variables after the simulation 
+has been started, all variables needed in the simulation must be initialised in advance using this method. </p>
+<p>The variable types supported are: integers, floats, strings, and 2D points (with two integers x, y).</p>
+<h3 id="method-initialise">method <code>Initialise</code></h3>
+<p>After setting the attachment between ALPs and CLPs, and preloading all variables needed, the <code>Initialise</code> method 
+initialises every MPI process as what it should be, ALP or CLP. It also used the data collected from previous user settings 
+to initialise variables inside CLPs.</p>
+<h3 id="method-run">method <code>Run</code></h3>
+<p>Start actually running the simulation. This includes starting the LP and running all threads needed inside it, such as message 
+polling and sending. Note that agent threads is not started here. </p>
+<h3 id="method-finalise">method <code>Finalise</code></h3>
+<p>The method executed when ending the simulation. This could either collect the logs, or just exit.</p>
+<h3 id="method-add_agent">method <code>add_agent</code></h3>
+<p>Adds agents to a ALP. When the method is called on a CLP process, nothing will happen.</p>
+<h2 id="class-agent">class <code>Agent</code></h2>
+<p>The agent inside ALPs are actually threads running concurrently. To program a agent, simply override the method 
+<code>Cycle</code> in your own agent class inheriting the <code>Agent</code> class. </p>
+<h3 id="method-cycle">method <code>Cycle</code></h3>
+<p>This is the main loop agent is going to execute. Inside this method, you need to use the data accessing methods provided 
+by our agent programming interface to define the behaviour of your own agent.</p>
+<h3 id="method-sendgvtmessage">method <code>SendGVTMessage</code></h3>
+<p>This methods initiates GVT calculation across the whole system. Typically this is automatically controlled by the system 
+and users won't need to touch this. If the GVT synchronization is too often, this may cause significant overhead thus slowing 
+down the simulation.</p>
+<h3 id="method-time_wrap">method <code>time_wrap</code></h3>
+<p>This method is used to step timestamps when user is not doing anything in a given time period. Since PDES-MAS itself is event-driven, 
+this method will just increase the LVT of agent.</p>
+<h3 id="method-readint">method <code>ReadInt</code></h3>
+<p>Read an integer SSV.</p>
+<h3 id="method-readdouble">method <code>ReadDouble</code></h3>
+<p>Read a double SSV.</p>
+<h3 id="method-readpoint">method <code>ReadPoint</code></h3>
+<p>Read a 2D point SSV.</p>
+<h3 id="method-readstring">method <code>ReadString</code></h3>
+<p>Read a string SSV.</p>
+<h3 id="method-writeint">method <code>WriteInt</code></h3>
+<p>Modify an integer SSV.</p>
+<h3 id="method-writedouble">method <code>WriteDouble</code></h3>
+<p>Modify a double SSV.</p>
+<h3 id="method-writepoint">method <code>WritePoint</code></h3>
+<p>Modify a 2D point SSV.</p>
+<h3 id="method-writestring">method <code>WriteString</code></h3>
+<p>Modify a string SSV.</p>
+<h3 id="method-rangequerypoint">method <code>RangeQueryPoint</code></h3>
+<p>Perform range query in a given 2D rectangle range. Returns a list of point SSVs inside that range.</p>
+<h3 id="method-readprivateint">method <code>ReadPrivateInt</code></h3>
+<p>Read an integer agent local variable.</p>
+<h3 id="method-readprivatedouble">method <code>ReadPrivateDouble</code></h3>
+<p>Read a double agent local variable.</p>
+<h3 id="method-readprivatepoint">method <code>ReadPrivatePoint</code></h3>
+<p>Read a 2D point agent local variable.</p>
+<h3 id="method-readprivatestring">method <code>ReadPrivateString</code></h3>
+<p>Read a string agent local variable.</p>
+<h3 id="method-writeprivateint">method <code>WritePrivateInt</code></h3>
+<p>Modify an integer agent local variable.</p>
+<h3 id="method-writeprivatedouble">method <code>WritePrivateDouble</code></h3>
+<p>Modify a double agent local variable.</p>
+<h3 id="method-writeprivatepoint">method <code>WritePrivatePoint</code></h3>
+<p>Modify a 2D point agent local variable.</p>
+<h3 id="method-writeprivatestring">method <code>WritePrivateString</code></h3>
+<p>Modify a string agent local variable.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../lp/" class="btn btn-neutral float-right" title="Logical Process">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Welcome"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../lp/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

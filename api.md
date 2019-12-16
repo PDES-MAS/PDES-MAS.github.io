@@ -77,4 +77,3 @@ void TestAgent::Cycle() {
 }
 ```
 
-For detailed documents, please refer to [Readthedocs]().
