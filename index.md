@@ -15,9 +15,9 @@ The PDES-MAS framework is based on PDES paradigm, where a simulation model is di
 ![](/assets/images/pdesmas/topology.svg)
 
 # Novelty and Contributions
-PDES-MAS represents research efforts and investments of almost 20 years.  PDES-MAS has been a pioneering system that has made innovative contributions along different strands:
+PDES-MAS represents research efforts and investments of almost 20 years.  PDES-MAS has been a mould-breaking system that has made innovative contributions along different strands:
 
-1. **Distributed Simulation of MAS:** PDES-MAS has been  one of the earliest efforts to address the problem of distributed simulation of MAS models and develop a generic distributed simulation engine specific for MAS. 
+1. **Distributed Simulation of MAS:** PDES-MAS has been  one of the earliest efforts that pioneered the field of distributed simulation of MAS models and developed a generic distributed simulation engine specific for MAS. 
 2. **Event-Driven Simulation of Agents:** Contrary to the vast majority of the simulation engines for agent models that are time-driven, PDES-MAS supports a purely event-driven modelling approach.  
 3. **Optimistic Synchronisation for MAS.** PDES-MAS has been the first system to investigate optimistic synchronisation for MAS distributed simulations.
 4. **Data-Centric Simulation, Linking Models to Data:** PDES-MAS has demonstrated a method for accessing data from within a simulation using different forms of queries. It has been the first to address the problem of synchronised range queries. 
