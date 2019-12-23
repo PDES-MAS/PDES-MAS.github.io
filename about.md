@@ -11,13 +11,14 @@ permalink: about/
 - Georgios Theodoropoulos
 
 ## Team
-- Mike Lees
+A number of people have contributed to the development of PDES-MAS:
+
+- Mike Lees 
 - Ton Oguara
-- Vinoth 
+- Vinoth Suryanarayanan
 - Rob Minson
 - Bart Craenen
 - Ronald Ewald
-- Dan Chen
 - Brian Logan
 - Zhengchang Hua
 - Shuyi Chen
