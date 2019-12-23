@@ -11,7 +11,7 @@ permalink: about/
 - Georgios Theodoropoulos
 
 ## Team
-A number of people have contributed to the development of PDES-MAS:
+A number of people have contributed to the development of PDES-MAS over the years:
 
 - Mike Lees 
 - Ton Oguara
