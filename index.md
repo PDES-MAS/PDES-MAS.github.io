@@ -3,6 +3,10 @@ layout: default
 ---
 
 
+# PDES-MAS
+
+PDES-MAS is a framework and system for the distributed simulation of Agent-based models (MAS). PDES-MAS represents research efforts and investments of almost 20 years.  It has been a mould-breaking project and is one of the earliest efforts that pioneered the field of distributed simulation of MAS models. 
+
 # Overview and Rationale
 Recent years have witnessed an explosion of interest in complex systems, systems that involve non-linear interactions between large numbers of components. Depending on the domain, these components can be physical particles, biological entities, software elements, hardware devices or social entities. The complexity of such systems renders simulation modelling the only viable method to study their properties and analyse their behaviour.  In contrast, to the predominant approach to model such systems at the macro-level using numerical methods there has been an increasing trend to model complex systems at the micro-level and study their properties without making any a-priori assumptions about their aggregate emergent behaviour. 
 
@@ -15,7 +19,8 @@ The PDES-MAS framework is based on PDES paradigm, where a simulation model is di
 ![](/assets/images/pdesmas/topology.svg)
 
 # Novelty and Contributions
-PDES-MAS represents research efforts and investments of almost 20 years.  PDES-MAS has been a mould-breaking system that has made innovative contributions along different strands:
+
+PDES-MAS has been a mould-breaking system that has made innovative contributions along different strands:
 
 1. **Distributed Simulation of MAS:** PDES-MAS has been  one of the earliest efforts that pioneered the field of distributed simulation of MAS models and developed a generic distributed simulation engine specific for MAS. 
 2. **Event-Driven Simulation of Agents:** Contrary to the vast majority of the simulation engines for agent models that are time-driven, PDES-MAS supports a purely event-driven modelling approach.  
